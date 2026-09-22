@@ -1,328 +1,42 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wynne Community Report</title>
 
-
-    <!-- Supabase JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
     <style>
-
         * {
             box-sizing: border-box;
         }
 
-
         body {
             margin: 0;
-
             font-family: Arial, sans-serif;
-
-            background: #f2f4f7;
-
+            background: #f4f6f8;
             color: #222;
         }
 
-
         header {
             background: #1f4e79;
-
             color: white;
-
+            padding: 25px 20px;
             text-align: center;
-
-            padding: 30px 20px;
         }
-
 
         header h1 {
             margin: 0;
-
             font-size: 32px;
         }
 
-
         header p {
-            margin-top: 10px;
-        }
-
-
-        .container {
-            max-width: 850px;
-
-            margin: 30px auto;
-
-            padding: 0 20px;
-        }
-
-
-        .card {
-            background: white;
-
-            padding: 25px;
-
-            margin-bottom: 25px;
-
-            border-radius: 12px;
-
-            box-shadow:
-                0 3px 10px
-                rgba(0, 0, 0, 0.1);
-        }
-
-
-        h2 {
-            margin-top: 0;
-
-            color: #1f4e79;
-        }
-
-
-        label {
-            display: block;
-
-            margin-top: 15px;
-
-            margin-bottom: 6px;
-
-            font-weight: bold;
-        }
-
-
-        input,
-        textarea {
-
-            width: 100%;
-
-            padding: 12px;
-
-            border: 1px solid #ccc;
-
-            border-radius: 6px;
-
+            margin: 8px 0 0;
             font-size: 16px;
         }
 
-
-        textarea {
-
-            height: 120px;
-
-            resize: vertical;
-        }
-
-
-        button {
-
-            margin-top: 15px;
-
-            padding: 11px 18px;
-
-            border: none;
-
-            border-radius: 6px;
-
-            background: #1f4e79;
-
-            color: white;
-
-            font-size: 15px;
-
-            cursor: pointer;
-        }
-
-
-        button:hover {
-
-            background: #163a5c;
-        }
-
-
-        .danger {
-
-            background: #b42318;
-        }
-
-
-        .danger:hover {
-
-            background: #8f1c13;
-        }
-
-
-        .success-button {
-
-            background: #217a35;
-        }
-
-
-        .success-button:hover {
-
-            background: #175b27;
-        }
-
-
-        .secondary {
-
-            background: #666;
-        }
-
-
-        .secondary:hover {
-
-            background: #444;
-        }
-
-
-        .hidden {
-
-            display: none;
-        }
-
-
-        .account-area {
-
-            text-align: center;
-
-            margin-top: 20px;
-        }
-
-
-        .report {
-
-            border-left: 5px solid #1f4e79;
-
-            background: #f7f9fb;
-
-            padding: 18px;
-
-            margin-top: 15px;
-
-            border-radius: 6px;
-        }
-
-
-        .report h3 {
-
-            margin-top: 0;
-        }
-
-
-        .status {
-
-            display: inline-block;
-
-            padding: 5px 10px;
-
-            border-radius: 20px;
-
-            font-size: 14px;
-
-            font-weight: bold;
-        }
-
-
-        .submitted {
-
-            background: #e8f0fe;
-
-            color: #1f4e79;
-        }
-
-
-        .completed {
-
-            background: #e6f4ea;
-
-            color: #217a35;
-        }
-
-
-        .message {
-
-            padding: 12px;
-
-            margin-top: 15px;
-
-            border-radius: 6px;
-
-            display: none;
-        }
-
-
-        .success-message {
-
-            background: #dff0d8;
-
-            color: #27632a;
-        }
-
-
-        .error-message {
-
-            background: #fce8e6;
-
-            color: #b42318;
-        }
-
-
-        .login-info {
-
-            background: #eef4fa;
-
-            padding: 15px;
-
-            border-radius: 8px;
-
-            margin-bottom: 20px;
-        }
-
-
-        .button-row {
-
-            display: flex;
-
-            gap: 8px;
-
-            flex-wrap: wrap;
-        }
-
-
-        footer {
-
-            text-align: center;
-
-            padding: 30px 20px;
-
-            color: #666;
-
-            background: white;
-
-            margin-top: 30px;
-        }
-
-
-        .creator {
-
-            font-weight: bold;
-
-            color: #1f4e79;
-
-            margin-top: 5px;
-        }
-
+        /* TOP PHONE NUMBERS */
 
         .top-contact-bar {
             background: white;
@@ -351,660 +65,605 @@
             text-decoration: underline;
         }
 
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        h2 {
+            color: #1f4e79;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #1f4e79;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        button {
+            border: none;
+            border-radius: 6px;
+            padding: 11px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .primary-button {
+            background: #1f4e79;
+            color: white;
+            width: 100%;
+            font-size: 16px;
+            padding: 13px;
+        }
+
+        .primary-button:hover {
+            background: #163a5c;
+        }
+
+        .secondary-button {
+            background: #666;
+            color: white;
+        }
+
+        .secondary-button:hover {
+            background: #444;
+        }
+
+        .edit-button {
+            background: #d99a00;
+            color: white;
+        }
+
+        .edit-button:hover {
+            background: #b67f00;
+        }
+
+        .complete-button {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .complete-button:hover {
+            background: #205923;
+        }
+
+        .delete-button {
+            background: #c62828;
+            color: white;
+        }
+
+        .delete-button:hover {
+            background: #991f1f;
+        }
+
+        .report {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            background: #fafafa;
+        }
+
+        .report h3 {
+            margin-top: 0;
+        }
+
+        .report p {
+            margin: 8px 0;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status.completed {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .owner-buttons {
+            margin-top: 15px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .auth-box {
+            background: #eef4f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .auth-buttons button {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .message {
+            margin-top: 12px;
+            padding: 10px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .message.success {
+            display: block;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .message.error {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .logged-in {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #1f4e79;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+        }
+
+        footer .creator {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 25px;
+            }
+
+            .container {
+                width: 94%;
+            }
+
+            .card {
+                padding: 18px;
+            }
+
+            .important-contacts p {
+                display: block;
+            }
+        }
     </style>
-
 </head>
-
 
 <body>
 
-
-<header>
-
-    <h1>
-        Wynne Community Report
-    </h1>
-
-    <p>
-        Help make our community better by reporting problems.
-    </p>
-
-</header>
-
-<div class="top-contact-bar">
-    <div class="important-contacts">
-        <h3>Important City Phone Numbers</h3>
-
-        <p>
-            <strong>Wynne Fire Department:</strong>
-            <a href="tel:8702388947">(870) 238-8947</a>
-        </p>
-
-        <p>
-            <strong>Wynne Police Department:</strong>
-            <a href="tel:8702388718">(870) 238-8718</a>
-        </p>
-
-        <p>
-            <strong>Wynne City Hall:</strong>
-            <a href="tel:8702380027">(870) 238-0027</a>
-        </p>
-    </div>
-</div>
-
-<div class="container">`
+    <header>
+        <h1>Wynne Community Report</h1>
+        <p>Help make Wynne a better and safer community.</p>
+    </header>
 
 
-    <!-- ACCOUNT -->
+    <!-- IMPORTANT CITY PHONE NUMBERS -->
 
-    <div class="card">
-
-        <h2>
-            Account
-        </h2>
-
-
-        <!-- Logged out -->
-
-        <div id="loggedOutArea">
-
-            <div class="login-info">
-
-                <strong>
-                    Create an account or log in
-                </strong>
-
-                <p>
-                    You need an account to submit,
-                    edit, delete, or complete reports.
-                    Everyone can still view reports.
-                </p>
-
-            </div>
-
-
-            <label for="email">
-                Email
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                placeholder="your@email.com"
-            >
-
-
-            <label for="password">
-                Password
-            </label>
-
-            <input
-                type="password"
-                id="password"
-                placeholder="Password"
-            >
-
-
-            <label for="displayName">
-                Your name
-            </label>
-
-            <input
-                type="text"
-                id="displayName"
-                placeholder="Your name"
-            >
-
-
-            <div class="button-row">
-
-                <button onclick="signUp()">
-                    Create Account
-                </button>
-
-                <button
-                    class="secondary"
-                    onclick="signIn()"
-                >
-                    Log In
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- Logged in -->
-
-        <div
-            id="loggedInArea"
-            class="hidden"
-        >
+    <div class="top-contact-bar">
+        <div class="important-contacts">
+            <h3>Important City Phone Numbers</h3>
 
             <p>
-                Logged in as:
-                <strong id="currentUser"></strong>
+                <strong>Wynne Fire Department:</strong>
+                <a href="tel:8702388947">(870) 238-8947</a>
             </p>
 
+            <p>
+                <strong>Wynne Police Department:</strong>
+                <a href="tel:8702388718">(870) 238-8718</a>
+            </p>
+
+            <p>
+                <strong>Wynne City Hall:</strong>
+                <a href="tel:8702380027">(870) 238-0027</a>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <!-- ACCOUNT -->
+
+        <div class="card">
+            <h2>Account</h2>
+
+            <div id="loggedInBox" class="logged-in hidden">
+                You are logged in as:
+                <strong id="loggedInName"></strong>
+            </div>
+
+            <div id="authBox" class="auth-box">
+
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                >
+
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                >
+
+                <label for="displayName">Name</label>
+                <input
+                    type="text"
+                    id="displayName"
+                    placeholder="Your name"
+                >
+
+                <div class="auth-buttons">
+                    <button
+                        class="primary-button"
+                        onclick="signUp()">
+                        Create Account
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        onclick="signIn()">
+                        Log In
+                    </button>
+                </div>
+
+                <div id="authMessage" class="message"></div>
+
+            </div>
 
             <button
-                class="secondary"
-                onclick="signOut()"
-            >
+                id="logoutButton"
+                class="delete-button hidden"
+                onclick="signOut()">
                 Log Out
             </button>
-
         </div>
 
 
-        <div
-            id="accountMessage"
-            class="message"
-        ></div>
+        <!-- SUBMIT REPORT -->
 
-    </div>
+        <div class="card">
 
-
-
-    <!-- SUBMIT REPORT -->
-
-    <div
-        class="card"
-        id="submitCard"
-    >
-
-        <h2>
-            Submit a Community Report
-        </h2>
-
-
-        <p>
-            You must be logged in to submit a report.
-        </p>
-
-
-        <form id="reportForm">
-
-
-            <label for="problem">
-                What is the problem?
-            </label>
-
-            <input
-                type="text"
-                id="problem"
-                placeholder="Example: Pothole"
-                required
-            >
-
-
-            <label for="location">
-                Where is it located?
-            </label>
-
-            <input
-                type="text"
-                id="location"
-                placeholder="Example: Highway 64"
-                required
-            >
-
-
-            <label for="description">
-                Describe the problem
-            </label>
-
-            <textarea
-                id="description"
-                placeholder="Describe what is happening..."
-                required
-            ></textarea>
-
-
-            <button type="submit">
-                Submit Report
-            </button>
-
-
-            <div
-                id="submitMessage"
-                class="message"
-            ></div>
-
-        </form>
-
-    </div>
-
-
-
-    <!-- REPORTS -->
-
-    <div class="card">
-
-        <h2>
-            Community Reports
-        </h2>
-
-
-        <p>
-            All community reports are shown below.
-        </p>
-
-
-        <div id="reportsContainer">
+            <h2>Submit a Community Report</h2>
 
             <p>
-                Loading reports...
+                Report a problem you see in the Wynne community.
             </p>
+
+            <form id="reportForm">
+
+                <label for="problemSelect">
+                    What is the problem?
+                </label>
+
+                <select id="problemSelect" required>
+
+                    <option value="">
+                        -- Select a problem --
+                    </option>
+
+                    <option value="Pothole">
+                        Pothole
+                    </option>
+
+                    <option value="Broken Streetlight">
+                        Broken Streetlight
+                    </option>
+
+                    <option value="Road Damage">
+                        Road Damage
+                    </option>
+
+                    <option value="Fallen Tree / Branch">
+                        Fallen Tree / Branch
+                    </option>
+
+                    <option value="Trash / Illegal Dumping">
+                        Trash / Illegal Dumping
+                    </option>
+
+                    <option value="Drainage / Flooding">
+                        Drainage / Flooding
+                    </option>
+
+                    <option value="Damaged Sidewalk">
+                        Damaged Sidewalk
+                    </option>
+
+                    <option value="Traffic Sign Problem">
+                        Traffic Sign Problem
+                    </option>
+
+                    <option value="Water / Sewer Problem">
+                        Water / Sewer Problem
+                    </option>
+
+                    <option value="Abandoned Property">
+                        Abandoned Property
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <!-- OTHER PROBLEM -->
+
+                <div id="otherProblemBox" class="hidden">
+
+                    <label for="otherProblem">
+                        Describe the problem
+                    </label>
+
+                    <input
+                        type="text"
+                        id="otherProblem"
+                        placeholder="Type the problem here"
+                    >
+
+                </div>
+
+
+                <label for="location">
+                    Where is it located?
+                </label>
+
+                <input
+                    type="text"
+                    id="location"
+                    placeholder="Example: Highway 64"
+                    required
+                >
+
+
+                <label for="description">
+                    Describe the problem
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Give more information about the problem..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="primary-button">
+                    Submit Report
+                </button>
+
+            </form>
+
+            <div id="submitMessage" class="message"></div>
+
+        </div>
+
+
+        <!-- REPORTS -->
+
+        <div class="card">
+
+            <h2>Community Reports</h2>
+
+            <p>
+                Everyone can see reports submitted by the community.
+            </p>
+
+            <div id="reportsContainer">
+                Loading reports...
+            </div>
 
         </div>
 
     </div>
 
 
-</div>
+    <footer>
+
+        <div>
+            Wynne Community Report
+        </div>
+
+        <div class="creator">
+            Made by Daylin Hawkins - EAST Student
+        </div>
+
+    </footer>
 
 
+    <script>
 
-<footer>
+        /* =========================================
+           SUPABASE
+        ========================================= */
 
-    <div>
-        Wynne Community Report
-    </div>
+        const SUPABASE_URL =
+            "https://ybzawempenkvkxhcgmos.supabase.co";
 
-    <div class="creator">
-        Made by Daylin Hawkins - EAST Student
-    </div>
+        const SUPABASE_KEY =
+            "sb_publishable_Z1J4dyZG-GAsppUio4v2Tg_FXQLupI_";
 
-</footer>
-
-
-
-<script>
-
-
-/*
-==================================================
-SUPABASE SETUP
-==================================================
-*/
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
 
 
-const SUPABASE_URL =
-    "https://ybzawempenkvkxhcgmos.supabase.co";
+        /* =========================================
+           CURRENT USER
+        ========================================= */
+
+        let currentUser = null;
 
 
-const SUPABASE_KEY =
-    "sb_publishable_Z1J4dyZG-GAsppUio4v2Tg_FXQLupI_";
+        /* =========================================
+           SHOW / HIDE OTHER PROBLEM
+        ========================================= */
+
+        const problemSelect =
+            document.getElementById("problemSelect");
+
+        const otherProblemBox =
+            document.getElementById("otherProblemBox");
+
+        const otherProblem =
+            document.getElementById("otherProblem");
 
 
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
+        problemSelect.addEventListener(
+            "change",
+            function () {
 
+                if (this.value === "Other") {
 
+                    otherProblemBox.classList.remove("hidden");
 
-/*
-==================================================
-ACCOUNT FUNCTIONS
-==================================================
-*/
+                    otherProblem.required = true;
 
+                    otherProblem.focus();
 
-async function signUp() {
+                } else {
 
-    const email =
-        document
-            .getElementById("email")
-            .value
-            .trim();
+                    otherProblemBox.classList.add("hidden");
 
+                    otherProblem.required = false;
 
-    const password =
-        document
-            .getElementById("password")
-            .value;
-
-
-    const name =
-        document
-            .getElementById("displayName")
-            .value
-            .trim();
-
-
-    if (!email || !password || !name) {
-
-        showAccountMessage(
-            "Please enter your email, password, and name.",
-            true
-        );
-
-        return;
-    }
-
-
-    const {
-        data,
-        error
-    } =
-        await supabaseClient.auth.signUp({
-
-            email: email,
-
-            password: password,
-
-            options: {
-
-                data: {
-
-                    display_name: name
+                    otherProblem.value = "";
 
                 }
 
             }
-
-        });
-
-
-    if (error) {
-
-        showAccountMessage(
-            error.message,
-            true
-        );
-
-        return;
-    }
-
-
-    showAccountMessage(
-        "Account created! Check your email if confirmation is required.",
-        false
-    );
-
-}
-
-
-
-async function signIn() {
-
-    const email =
-        document
-            .getElementById("email")
-            .value
-            .trim();
-
-
-    const password =
-        document
-            .getElementById("password")
-            .value;
-
-
-    const {
-        data,
-        error
-    } =
-        await supabaseClient.auth.signInWithPassword({
-
-            email: email,
-
-            password: password
-
-        });
-
-
-    if (error) {
-
-        showAccountMessage(
-            error.message,
-            true
-        );
-
-        return;
-    }
-
-
-    showAccountMessage(
-        "Logged in successfully!",
-        false
-    );
-
-
-    updateAccountDisplay();
-
-    loadReports();
-
-}
-
-
-
-async function signOut() {
-
-    await supabaseClient.auth.signOut();
-
-    updateAccountDisplay();
-
-    loadReports();
-
-}
-
-
-
-async function getCurrentUser() {
-
-    const {
-        data
-    } =
-        await supabaseClient.auth.getUser();
-
-
-    return data.user;
-
-}
-
-
-
-/*
-==================================================
-ACCOUNT DISPLAY
-==================================================
-*/
-
-
-async function updateAccountDisplay() {
-
-    const user =
-        await getCurrentUser();
-
-
-    const loggedOut =
-        document.getElementById(
-            "loggedOutArea"
         );
 
 
-    const loggedIn =
-        document.getElementById(
-            "loggedInArea"
-        );
+        /* =========================================
+           AUTH MESSAGE
+        ========================================= */
 
+        function showAuthMessage(message, error = false) {
 
-    const currentUser =
-        document.getElementById(
-            "currentUser"
-        );
+            const box =
+                document.getElementById("authMessage");
 
+            box.textContent = message;
 
-    if (user) {
+            box.className =
+                error
+                    ? "message error"
+                    : "message success";
 
-        loggedOut.classList.add(
-            "hidden"
-        );
+        }
 
 
-        loggedIn.classList.remove(
-            "hidden"
-        );
+        /* =========================================
+           SUBMIT MESSAGE
+        ========================================= */
 
+        function showSubmitMessage(message, error = false) {
 
-        const name =
-            user.user_metadata
-                ?.display_name
-            || user.email;
+            const box =
+                document.getElementById("submitMessage");
 
+            box.textContent = message;
 
-        currentUser.textContent =
-            name;
+            box.className =
+                error
+                    ? "message error"
+                    : "message success";
 
-    }
+        }
 
-    else {
 
-        loggedOut.classList.remove(
-            "hidden"
-        );
+        /* =========================================
+           SIGN UP
+        ========================================= */
 
+        async function signUp() {
 
-        loggedIn.classList.add(
-            "hidden"
-        );
+            const email =
+                document.getElementById("email")
+                    .value
+                    .trim();
 
-    }
+            const password =
+                document.getElementById("password")
+                    .value;
 
+            const displayName =
+                document.getElementById("displayName")
+                    .value
+                    .trim();
 
-    displaySubmitArea();
-}
 
+            if (!email || !password || !displayName) {
 
-
-function displaySubmitArea() {
-
-    getCurrentUser()
-        .then(function(user) {
-
-            const form =
-                document.getElementById(
-                    "reportForm"
-                );
-
-
-            if (user) {
-
-                form.style.display =
-                    "block";
-
-            }
-
-            else {
-
-                form.style.display =
-                    "none";
-
-            }
-
-        });
-
-}
-
-
-
-/*
-==================================================
-MESSAGES
-==================================================
-*/
-
-
-function showAccountMessage(
-    message,
-    isError
-) {
-
-    const box =
-        document.getElementById(
-            "accountMessage"
-        );
-
-
-    box.textContent =
-        message;
-
-
-    box.className =
-        "message " +
-        (
-            isError
-            ? "error-message"
-            : "success-message"
-        );
-
-
-    box.style.display =
-        "block";
-
-}
-
-
-
-function showSubmitMessage(
-    message,
-    isError
-) {
-
-    const box =
-        document.getElementById(
-            "submitMessage"
-        );
-
-
-    box.textContent =
-        message;
-
-
-    box.className =
-        "message " +
-        (
-            isError
-            ? "error-message"
-            : "success-message"
-        );
-
-
-    box.style.display =
-        "block";
-
-}
-
-
-
-/*
-==================================================
-SUBMIT REPORT
-==================================================
-*/
-
-
-document
-    .getElementById("reportForm")
-    .addEventListener(
-        "submit",
-        async function(event) {
-
-            event.preventDefault();
-
-
-            const user =
-                await getCurrentUser();
-
-
-            if (!user) {
-
-                showSubmitMessage(
-                    "Please log in first.",
+                showAuthMessage(
+                    "Please enter your email, password, and name.",
                     true
                 );
 
@@ -1012,58 +671,38 @@ document
             }
 
 
-            const problem =
-                document
-                    .getElementById("problem")
-                    .value
-                    .trim();
+            if (password.length < 6) {
+
+                showAuthMessage(
+                    "Your password must be at least 6 characters.",
+                    true
+                );
+
+                return;
+            }
 
 
-            const location =
-                document
-                    .getElementById("location")
-                    .value
-                    .trim();
+            const { data, error } =
+                await supabaseClient.auth.signUp({
 
+                    email: email,
 
-            const description =
-                document
-                    .getElementById("description")
-                    .value
-                    .trim();
+                    password: password,
 
+                    options: {
 
-            const name =
-                user.user_metadata
-                    ?.display_name
-                || user.email;
+                        data: {
+                            display_name: displayName
+                        }
 
+                    }
 
-            const {
-                error
-            } =
-                await supabaseClient
-                    .from("reports")
-                    .insert({
-
-                        user_id: user.id,
-
-                        problem: problem,
-
-                        location: location,
-
-                        description: description,
-
-                        name: name,
-
-                        status: "Submitted"
-
-                    });
+                });
 
 
             if (error) {
 
-                showSubmitMessage(
+                showAuthMessage(
                     error.message,
                     true
                 );
@@ -1072,544 +711,803 @@ document
             }
 
 
-            showSubmitMessage(
-                "Report submitted successfully!",
-                false
+            showAuthMessage(
+                "Account created successfully!"
             );
 
 
-            document
-                .getElementById("reportForm")
-                .reset();
+            document.getElementById("password")
+                .value = "";
 
+        }
+
+
+        /* =========================================
+           SIGN IN
+        ========================================= */
+
+        async function signIn() {
+
+            const email =
+                document.getElementById("email")
+                    .value
+                    .trim();
+
+            const password =
+                document.getElementById("password")
+                    .value;
+
+
+            if (!email || !password) {
+
+                showAuthMessage(
+                    "Please enter your email and password.",
+                    true
+                );
+
+                return;
+            }
+
+
+            const { data, error } =
+                await supabaseClient.auth.signInWithPassword({
+
+                    email: email,
+
+                    password: password
+
+                });
+
+
+            if (error) {
+
+                showAuthMessage(
+                    error.message,
+                    true
+                );
+
+                return;
+            }
+
+
+            showAuthMessage(
+                "You are now logged in."
+            );
+
+
+            document.getElementById("password")
+                .value = "";
+
+        }
+
+
+        /* =========================================
+           SIGN OUT
+        ========================================= */
+
+        async function signOut() {
+
+            await supabaseClient.auth.signOut();
+
+            currentUser = null;
+
+            updateAccountUI();
 
             loadReports();
 
         }
-    );
 
 
+        /* =========================================
+           ACCOUNT UI
+        ========================================= */
 
-/*
-==================================================
-LOAD ALL REPORTS
-==================================================
-*/
+        function updateAccountUI() {
+
+            const authBox =
+                document.getElementById("authBox");
+
+            const loggedInBox =
+                document.getElementById("loggedInBox");
+
+            const loggedInName =
+                document.getElementById("loggedInName");
+
+            const logoutButton =
+                document.getElementById("logoutButton");
 
 
-async function loadReports() {
+            if (currentUser) {
 
-    const container =
-        document.getElementById(
-            "reportsContainer"
-        );
+                authBox.classList.add("hidden");
 
+                loggedInBox.classList.remove("hidden");
 
-    container.innerHTML =
-        "<p>Loading reports...</p>";
+                logoutButton.classList.remove("hidden");
 
 
-    const {
-        data,
-        error
-    } =
-        await supabaseClient
-            .from("reports")
-            .select("*")
-            .order(
-                "created_at",
-                {
-                    ascending: false
+                const name =
+                    currentUser.user_metadata?.display_name
+                    || currentUser.email;
+
+
+                loggedInName.textContent =
+                    name;
+
+            } else {
+
+                authBox.classList.remove("hidden");
+
+                loggedInBox.classList.add("hidden");
+
+                logoutButton.classList.add("hidden");
+
+            }
+
+        }
+
+
+        /* =========================================
+           SUBMIT REPORT
+        ========================================= */
+
+        document
+            .getElementById("reportForm")
+            .addEventListener(
+                "submit",
+                async function(event) {
+
+                    event.preventDefault();
+
+
+                    if (!currentUser) {
+
+                        showSubmitMessage(
+                            "You must create an account or log in before submitting a report.",
+                            true
+                        );
+
+                        return;
+                    }
+
+
+                    let problem =
+                        document
+                            .getElementById("problemSelect")
+                            .value;
+
+
+                    if (problem === "Other") {
+
+                        problem =
+                            document
+                                .getElementById("otherProblem")
+                                .value
+                                .trim();
+
+                    }
+
+
+                    if (!problem) {
+
+                        showSubmitMessage(
+                            "Please select or describe the problem.",
+                            true
+                        );
+
+                        return;
+                    }
+
+
+                    const location =
+                        document
+                            .getElementById("location")
+                            .value
+                            .trim();
+
+
+                    const description =
+                        document
+                            .getElementById("description")
+                            .value
+                            .trim();
+
+
+                    const name =
+                        currentUser
+                            .user_metadata
+                            ?.display_name
+                        || currentUser.email;
+
+
+                    const { error } =
+                        await supabaseClient
+                            .from("reports")
+                            .insert({
+
+                                user_id:
+                                    currentUser.id,
+
+                                problem:
+                                    problem,
+
+                                location:
+                                    location,
+
+                                description:
+                                    description,
+
+                                name:
+                                    name,
+
+                                status:
+                                    "Submitted"
+
+                            });
+
+
+                    if (error) {
+
+                        showSubmitMessage(
+                            error.message,
+                            true
+                        );
+
+                        return;
+                    }
+
+
+                    showSubmitMessage(
+                        "Report submitted successfully!"
+                    );
+
+
+                    document
+                        .getElementById("reportForm")
+                        .reset();
+
+
+                    otherProblemBox
+                        .classList
+                        .add("hidden");
+
+
+                    otherProblem.required =
+                        false;
+
+
+                    await loadReports();
+
                 }
             );
 
 
-    if (error) {
+        /* =========================================
+           LOAD REPORTS
+        ========================================= */
 
-        container.innerHTML =
-            `<p>
-                Could not load reports:
-                ${escapeHTML(error.message)}
-            </p>`;
+        async function loadReports() {
 
-        return;
-    }
-
-
-    if (!data || data.length === 0) {
-
-        container.innerHTML =
-            "<p>No reports have been submitted yet.</p>";
-
-        return;
-    }
+            const container =
+                document
+                    .getElementById("reportsContainer");
 
 
-    const user =
-        await getCurrentUser();
+            container.innerHTML =
+                "Loading reports...";
 
 
-    container.innerHTML = "";
+            const { data, error } =
+                await supabaseClient
+                    .from("reports")
+                    .select("*")
+                    .order(
+                        "created_at",
+                        {
+                            ascending: false
+                        }
+                    );
 
 
-    data.forEach(function(report) {
+            if (error) {
 
-        const reportDiv =
-            document.createElement("div");
+                container.innerHTML =
+                    "<p>Could not load reports.</p>";
 
+                console.error(error);
 
-        reportDiv.className =
-            "report";
-
-
-        const isOwner =
-            user &&
-            user.id === report.user_id;
+                return;
+            }
 
 
-        const statusClass =
-            report.status === "Completed"
-            ? "completed"
-            : "submitted";
+            if (!data || data.length === 0) {
+
+                container.innerHTML =
+                    "<p>No community reports have been submitted yet.</p>";
+
+                return;
+            }
 
 
-        let buttons = "";
+            container.innerHTML = "";
 
 
-        /*
-            ONLY the owner gets these buttons.
-        */
+            data.forEach(function(report) {
 
-        if (isOwner) {
-
-            buttons = `
-
-                <div class="button-row">
-
-                    <button
-                        onclick="editReport(${report.id})"
-                    >
-                        Edit
-                    </button>
+                const reportDiv =
+                    document.createElement("div");
 
 
-                    <button
-                        class="success-button"
-                        onclick="completeReport(${report.id})"
-                    >
-                        Mark Completed
-                    </button>
+                reportDiv.className =
+                    "report";
 
 
-                    <button
-                        class="danger"
-                        onclick="deleteReport(${report.id})"
-                    >
-                        Delete
-                    </button>
+                const title =
+                    document.createElement("h3");
 
-                </div>
+                title.textContent =
+                    report.problem;
 
-            `;
+
+                const location =
+                    document.createElement("p");
+
+                location.innerHTML =
+                    "<strong>Location:</strong> " +
+                    escapeHTML(report.location);
+
+
+                const description =
+                    document.createElement("p");
+
+                description.innerHTML =
+                    "<strong>Description:</strong> " +
+                    escapeHTML(report.description);
+
+
+                const submittedBy =
+                    document.createElement("p");
+
+                submittedBy.innerHTML =
+                    "<strong>Submitted by:</strong> " +
+                    escapeHTML(report.name);
+
+
+                const status =
+                    document.createElement("span");
+
+                status.className =
+                    "status";
+
+
+                if (report.status === "Completed") {
+
+                    status.classList.add(
+                        "completed"
+                    );
+
+                }
+
+
+                status.textContent =
+                    report.status;
+
+
+                reportDiv.appendChild(title);
+
+                reportDiv.appendChild(location);
+
+                reportDiv.appendChild(description);
+
+                reportDiv.appendChild(submittedBy);
+
+                reportDiv.appendChild(status);
+
+
+                /* OWNER BUTTONS */
+
+                if (
+                    currentUser &&
+                    currentUser.id === report.user_id
+                ) {
+
+                    const buttons =
+                        document.createElement("div");
+
+
+                    buttons.className =
+                        "owner-buttons";
+
+
+                    const editButton =
+                        document.createElement("button");
+
+                    editButton.className =
+                        "edit-button";
+
+                    editButton.textContent =
+                        "Edit";
+
+                    editButton.onclick =
+                        function() {
+
+                            editReport(report);
+
+                        };
+
+
+                    const completeButton =
+                        document.createElement("button");
+
+                    completeButton.className =
+                        "complete-button";
+
+                    completeButton.textContent =
+                        report.status === "Completed"
+                            ? "Mark Submitted"
+                            : "Mark Completed";
+
+
+                    completeButton.onclick =
+                        function() {
+
+                            completeReport(report);
+
+                        };
+
+
+                    const deleteButton =
+                        document.createElement("button");
+
+                    deleteButton.className =
+                        "delete-button";
+
+                    deleteButton.textContent =
+                        "Delete";
+
+
+                    deleteButton.onclick =
+                        function() {
+
+                            deleteReport(report);
+
+                        };
+
+
+                    buttons.appendChild(
+                        editButton
+                    );
+
+                    buttons.appendChild(
+                        completeButton
+                    );
+
+                    buttons.appendChild(
+                        deleteButton
+                    );
+
+
+                    reportDiv.appendChild(
+                        buttons
+                    );
+
+                }
+
+
+                container.appendChild(
+                    reportDiv
+                );
+
+            });
+
         }
 
 
-        reportDiv.innerHTML = `
+        /* =========================================
+           EDIT REPORT
+        ========================================= */
 
-            <h3>
-                ${escapeHTML(report.problem)}
-            </h3>
+        async function editReport(report) {
 
+            if (!currentUser ||
+                currentUser.id !== report.user_id) {
 
-            <p>
-                <strong>Location:</strong>
-                ${escapeHTML(report.location)}
-            </p>
+                return;
+            }
 
 
-            <p>
-                <strong>Description:</strong>
-                ${escapeHTML(report.description)}
-            </p>
+            const newProblem =
+                prompt(
+                    "What is the problem?",
+                    report.problem
+                );
 
 
-            <p>
-                <strong>Submitted by:</strong>
-                ${escapeHTML(report.name)}
-            </p>
+            if (newProblem === null) {
 
+                return;
 
-            <p>
-                <strong>Status:</strong>
+            }
 
-                <span
-                    class="status ${statusClass}"
-                >
-                    ${escapeHTML(report.status)}
-                </span>
 
-            </p>
+            const newLocation =
+                prompt(
+                    "Where is it located?",
+                    report.location
+                );
 
 
-            ${buttons}
+            if (newLocation === null) {
 
-        `;
+                return;
 
+            }
 
-        container.appendChild(
-            reportDiv
-        );
 
-    });
+            const newDescription =
+                prompt(
+                    "Describe the problem",
+                    report.description
+                );
 
-}
 
+            if (newDescription === null) {
 
+                return;
 
-/*
-==================================================
-EDIT REPORT
-==================================================
-*/
+            }
 
 
-async function editReport(id) {
+            if (
+                !newProblem.trim() ||
+                !newLocation.trim() ||
+                !newDescription.trim()
+            ) {
 
-    const user =
-        await getCurrentUser();
+                alert(
+                    "All fields are required."
+                );
 
+                return;
+            }
 
-    if (!user) {
 
-        alert(
-            "You must be logged in."
-        );
+            const { error } =
+                await supabaseClient
+                    .from("reports")
+                    .update({
 
-        return;
-    }
+                        problem:
+                            newProblem.trim(),
 
+                        location:
+                            newLocation.trim(),
 
-    /*
-        Get the report.
-    */
+                        description:
+                            newDescription.trim()
 
-    const {
-        data: report,
-        error
-    } =
-        await supabaseClient
-            .from("reports")
-            .select("*")
-            .eq("id", id)
-            .single();
+                    })
+                    .eq(
+                        "id",
+                        report.id
+                    )
+                    .eq(
+                        "user_id",
+                        currentUser.id
+                    );
 
 
-    if (error || !report) {
+            if (error) {
 
-        alert(
-            "Could not find this report."
-        );
+                alert(
+                    "Could not update report: " +
+                    error.message
+                );
 
-        return;
-    }
+                return;
 
+            }
 
-    /*
-        Extra ownership check.
-    */
 
-    if (report.user_id !== user.id) {
+            await loadReports();
 
-        alert(
-            "You can only edit your own reports."
-        );
+        }
 
-        return;
-    }
 
+        /* =========================================
+           COMPLETE REPORT
+        ========================================= */
 
-    const newProblem =
-        prompt(
-            "What is the problem?",
-            report.problem
-        );
+        async function completeReport(report) {
 
+            if (!currentUser ||
+                currentUser.id !== report.user_id) {
 
-    if (newProblem === null) {
-        return;
-    }
+                return;
 
+            }
 
-    const newLocation =
-        prompt(
-            "Where is it located?",
-            report.location
-        );
 
+            const newStatus =
+                report.status === "Completed"
+                    ? "Submitted"
+                    : "Completed";
 
-    if (newLocation === null) {
-        return;
-    }
 
+            const { error } =
+                await supabaseClient
+                    .from("reports")
+                    .update({
 
-    const newDescription =
-        prompt(
-            "Describe the problem:",
-            report.description
-        );
+                        status:
+                            newStatus
 
+                    })
+                    .eq(
+                        "id",
+                        report.id
+                    )
+                    .eq(
+                        "user_id",
+                        currentUser.id
+                    );
 
-    if (newDescription === null) {
-        return;
-    }
 
+            if (error) {
 
-    const {
-        error: updateError
-    } =
-        await supabaseClient
-            .from("reports")
-            .update({
+                alert(
+                    "Could not update status: " +
+                    error.message
+                );
 
-                problem: newProblem,
+                return;
 
-                location: newLocation,
+            }
 
-                description: newDescription
 
-            })
-            .eq("id", id);
+            await loadReports();
 
+        }
 
-    if (updateError) {
 
-        alert(
-            updateError.message
-        );
+        /* =========================================
+           DELETE REPORT
+        ========================================= */
 
-        return;
-    }
+        async function deleteReport(report) {
 
+            if (!currentUser ||
+                currentUser.id !== report.user_id) {
 
-    loadReports();
+                return;
 
-}
+            }
 
 
+            const confirmed =
+                confirm(
+                    "Are you sure you want to delete this report?"
+                );
 
-/*
-==================================================
-MARK REPORT COMPLETED
-==================================================
-*/
 
+            if (!confirmed) {
 
-async function completeReport(id) {
+                return;
 
-    const user =
-        await getCurrentUser();
+            }
 
 
-    if (!user) {
+            const { error } =
+                await supabaseClient
+                    .from("reports")
+                    .delete()
+                    .eq(
+                        "id",
+                        report.id
+                    )
+                    .eq(
+                        "user_id",
+                        currentUser.id
+                    );
 
-        alert(
-            "You must be logged in."
-        );
 
-        return;
-    }
+            if (error) {
 
+                alert(
+                    "Could not delete report: " +
+                    error.message
+                );
 
-    const {
-        data: report
-    } =
-        await supabaseClient
-            .from("reports")
-            .select("user_id")
-            .eq("id", id)
-            .single();
+                return;
 
+            }
 
-    if (!report || report.user_id !== user.id) {
 
-        alert(
-            "You can only complete your own reports."
-        );
+            await loadReports();
 
-        return;
-    }
+        }
 
 
-    const confirmed =
-        confirm(
-            "Mark this report as completed?"
-        );
+        /* =========================================
+           SECURITY
+        ========================================= */
 
+        function escapeHTML(value) {
 
-    if (!confirmed) {
-        return;
-    }
+            return String(value)
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
 
+        }
 
-    const {
-        error
-    } =
-        await supabaseClient
-            .from("reports")
-            .update({
 
-                status: "Completed"
+        /* =========================================
+           AUTH STATE
+        ========================================= */
 
-            })
-            .eq("id", id);
+        supabaseClient.auth.onAuthStateChange(
+            function(event, session) {
 
+                currentUser =
+                    session
+                        ? session.user
+                        : null;
 
-    if (error) {
 
-        alert(
-            error.message
-        );
+                updateAccountUI();
 
-        return;
-    }
+                loadReports();
 
-
-    loadReports();
-
-}
-
-
-
-/*
-==================================================
-DELETE REPORT
-==================================================
-*/
-
-
-async function deleteReport(id) {
-
-    const user =
-        await getCurrentUser();
-
-
-    if (!user) {
-
-        alert(
-            "You must be logged in."
-        );
-
-        return;
-    }
-
-
-    const {
-        data: report
-    } =
-        await supabaseClient
-            .from("reports")
-            .select("user_id")
-            .eq("id", id)
-            .single();
-
-
-    if (!report || report.user_id !== user.id) {
-
-        alert(
-            "You can only delete your own reports."
-        );
-
-        return;
-    }
-
-
-    const confirmed =
-        confirm(
-            "Are you sure you want to delete this report?"
+            }
         );
 
 
-    if (!confirmed) {
-        return;
-    }
+        /* =========================================
+           START WEBSITE
+        ========================================= */
+
+        async function startWebsite() {
+
+            const { data } =
+                await supabaseClient
+                    .auth
+                    .getSession();
 
 
-    const {
-        error
-    } =
-        await supabaseClient
-            .from("reports")
-            .delete()
-            .eq("id", id);
+            currentUser =
+                data.session
+                    ? data.session.user
+                    : null;
 
 
-    if (error) {
-
-        alert(
-            error.message
-        );
-
-        return;
-    }
-
-
-    loadReports();
-
-}
-
-
-
-/*
-==================================================
-SECURITY
-==================================================
-*/
-
-
-function escapeHTML(text) {
-
-    const div =
-        document.createElement("div");
-
-
-    div.textContent =
-        text;
-
-
-    return div.innerHTML;
-
-}
-
-
-
-/*
-==================================================
-START WEBSITE
-==================================================
-*/
-
-
-supabaseClient.auth
-    .onAuthStateChange(
-        function() {
-
-            updateAccountDisplay();
+            updateAccountUI();
 
             loadReports();
 
         }
-    );
 
 
-updateAccountDisplay();
+        startWebsite();
 
-loadReports();
-
-
-</script>
-
+    </script>
 
 </body>
-
 </html>
-```
